@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34622.214
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LMS-activity-api", "LMS-activity-api\LMS-activity-api.csproj", "{A089F815-3C9B-4C9E-B09C-2F810ED45DB7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL\DAL.csproj", "{FA333435-3D7B-4B40-9E5E-2A2F651448DB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logic", "Logic\Logic.csproj", "{7E272837-0B6A-413C-A1B4-FE872692D991}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A089F815-3C9B-4C9E-B09C-2F810ED45DB7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A089F815-3C9B-4C9E-B09C-2F810ED45DB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A089F815-3C9B-4C9E-B09C-2F810ED45DB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A089F815-3C9B-4C9E-B09C-2F810ED45DB7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FA333435-3D7B-4B40-9E5E-2A2F651448DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA333435-3D7B-4B40-9E5E-2A2F651448DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA333435-3D7B-4B40-9E5E-2A2F651448DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA333435-3D7B-4B40-9E5E-2A2F651448DB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E272837-0B6A-413C-A1B4-FE872692D991}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E272837-0B6A-413C-A1B4-FE872692D991}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E272837-0B6A-413C-A1B4-FE872692D991}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E272837-0B6A-413C-A1B4-FE872692D991}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0D8276EB-78A6-4FC4-999D-124BD5D00BCA}
+	EndGlobalSection
+EndGlobal

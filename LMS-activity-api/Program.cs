@@ -4,6 +4,7 @@ using Logic.IRepositories;
 using Logic.IServices;
 using Logic.Services;
 using System;
+using DotNetEnv;
 using Pomelo.EntityFrameworkCore.MySql;
 using Microsoft.EntityFrameworkCore;
 
@@ -13,8 +14,31 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 
+Env.Load();
+
+builder.Services.AddCors(options =>
+{
+	options.AddDefaultPolicy(corsPolicyBuilder =>
+	{
+		corsPolicyBuilder.WithOrigins(Env.GetString("FRONT_END_URL"))
+			.AllowAnyHeader()
+			.AllowAnyMethod()
+			.AllowCredentials()
+			.SetIsOriginAllowed(_ => true);
+	});
+});
+
+var connectionString =
+	$"Server={Env.GetString("DB_HOST")};Database={Env.GetString("DB_NAME")};User Id={Env.GetString("DB_USER")};Password={Env.GetString("DB_PASSWORD")};";
+
 builder.Services.AddDbContext<ActivityDbContext>(options =>
-	options.UseMySql("ConnectionString", new MySqlServerVersion(new Version(8, 4, 3))));
+	options.UseMySql(
+		builder.Configuration.GetConnectionString(connectionString),
+		new MySqlServerVersion(new Version(Env.GetInt("SQL_MAJOR"), Env.GetInt("SQL_MINOR"), Env.GetInt("SQL_BUILD")))
+	)
+);
+
+//!TODO auth
 
 
 builder.Services.AddScoped<IActivityService, ActivityService>();

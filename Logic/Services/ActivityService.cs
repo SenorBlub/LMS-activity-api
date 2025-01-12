@@ -14,8 +14,15 @@ public class ActivityService : IActivityService
 	}
 	public async Task CreateAsync(Activity activity)
 	{
-		await _activityRepository.CreateAsync(activity);
-		
+		if(activity != null)
+			await _activityRepository.CreateAsync(activity);
+		if (activity.ActivityContents != null && activity.ActivityContents.Count > 0)
+		{
+			foreach (ActivityContent activityContent in activity.ActivityContents)
+			{
+				await _activityContentRepository.ConnectAsync(activityContent.ActivityId, activityContent.ContentId);
+			}
+		}
 	}
 
 	public async Task DeleteAsync(Activity activity)

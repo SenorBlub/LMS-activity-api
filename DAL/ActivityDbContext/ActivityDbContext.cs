@@ -5,12 +5,12 @@ namespace DAL.ActivityDbContext;
 
 public class ActivityDbContext : DbContext
 {
-	public DbSet<Activity> Activities { get; set; } = null!;
-	public DbSet<ActivityContent> ActivityContents { get; set; } = null!;
-
 	public ActivityDbContext(DbContextOptions<ActivityDbContext> options) : base(options)
 	{
 	}
+
+	public DbSet<Activity>? Activities { get; set; }
+	public DbSet<ActivityContent>? ActivityContents { get; set; }
 
 	protected override void OnModelCreating(ModelBuilder modelBuilder)
 	{

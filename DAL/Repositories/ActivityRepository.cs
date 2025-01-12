@@ -17,6 +17,7 @@ namespace DAL.Repositories
 
 		public async Task CreateAsync(Activity activity)
 		{
+
 			await _context.Activities.AddAsync(activity);
 			await _context.SaveChangesAsync();
 		}

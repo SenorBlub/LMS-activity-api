@@ -8,8 +8,9 @@ public class ActivityService : IActivityService
 {
 	private readonly IActivityRepository _activityRepository;
 	private readonly IActivityContentRepository _activityContentRepository;
-	public ActivityService(IActivityContentRepository activityContentRepository)
+	public ActivityService(IActivityContentRepository activityContentRepository, IActivityRepository activityRepository)
 	{
+		_activityRepository = activityRepository;
 		_activityContentRepository = activityContentRepository;
 	}
 	public async Task CreateAsync(Activity activity)

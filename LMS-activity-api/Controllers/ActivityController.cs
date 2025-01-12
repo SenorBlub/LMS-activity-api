@@ -19,6 +19,7 @@ namespace LMS_activity_api.Controllers
 		[HttpPost("create")]
 		public async Task<IActionResult> Create([FromBody] Activity activity)
 		{
+			activity.Id = Guid.NewGuid();
 			await _activityService.CreateAsync(activity);
 			return Ok(activity);
 		}

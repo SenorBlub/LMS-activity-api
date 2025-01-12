@@ -15,13 +15,22 @@ public class ActivityService : IActivityService
 	}
 	public async Task CreateAsync(Activity activity)
 	{
-		if(activity != null)
+		if(activity != null){
 			await _activityRepository.CreateAsync(activity);
-		if (activity.ActivityContents != null && activity.ActivityContents.Count > 0)
-		{
-			foreach (ActivityContent activityContent in activity.ActivityContents)
+			if (activity.ActivityContents != null && activity.ActivityContents.Count > 0)
 			{
-				await _activityContentRepository.ConnectAsync(activityContent.ActivityId, activityContent.ContentId);
+				if (activity.ActivityContents.Count > 1)
+				{
+					foreach (ActivityContent activityContent in activity.ActivityContents)
+					{
+						await _activityContentRepository.ConnectAsync(activityContent.ActivityId,
+							activityContent.ContentId);
+					}
+				}
+				else
+				{
+					await _activityContentRepository.ConnectAsync(activity.ActivityContents.First().ActivityId, activity.ActivityContents.First().ContentId);
+				}
 			}
 		}
 	}

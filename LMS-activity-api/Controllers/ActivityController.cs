@@ -16,11 +16,11 @@ namespace LMS_activity_api.Controllers
 			_activityService = activityService;
 		}
 
-		[HttpPost]
+		[HttpPost("create")]
 		public async Task<IActionResult> Create([FromBody] Activity activity)
 		{
 			await _activityService.CreateAsync(activity);
-			return CreatedAtAction(nameof(Get), new { id = activity.Id }, activity);
+			return Ok(activity);
 		}
 
 		[HttpGet("{id}")]
